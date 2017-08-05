@@ -1,24 +1,13 @@
-import React from 'react';
+import SearchMovies from './search_movies';
 import { connect } from 'react-redux';
-
-class SearchMovies extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return(
-      <div>Search Goes HERE!!!</div>
-    );
-  }
-}
+import { movieSearch } from '../../actions/movie_actions';
 
 const mapStateToProps = ({ movies }) => ({
-  movies: movies
+  movies: movies.movies
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  movieSearch: queryString => dispatch(movieSearch(queryString))
 });
 
 export default connect(

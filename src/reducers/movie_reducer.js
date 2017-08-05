@@ -1,6 +1,6 @@
 import { RECEIVE_MOVIES } from '../actions/movie_actions'
 
-const MovieReducer = (state = {}, action) => {
+const MovieReducer = (state = { movies: [] }, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_MOVIES:
