@@ -1,15 +1,16 @@
-import SearchMovies from './search_movies';
+import Profile from './profile';
 import { connect } from 'react-redux';
-import { movieSearch } from '../../actions/movie_actions';
+import { movieSearchById } from '../../actions/movie_actions';
 
 const mapStateToProps = ({ movies }) => ({
-  movies: movies.movies
+  movie: movies.movie
 });
 
 const mapDispatchToProps = dispatch => ({
+  movieSearchById: (id) => dispatch(movieSearchById(id))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchMovies);
+)(Profile);

@@ -1,30 +1,27 @@
 import React from 'react';
-import { Media, form, Button, Image } from 'react-bootstrap';
+import { Media } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class SearchMovies extends React.Component {
   constructor(props) {
     super(props);
     this.renderMovies = this.renderMovies.bind(this);
-    this.updateQuery = this.updateQuery.bind(this);
-    this.submitQuery = this.submitQuery.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.state = {
-      queryString: ''
-    };
   }
 
   renderMovies() {
-    const movies = this.props.movies;
+    const { movies } = this.props;
     return (
       <div>
         {movies.map(movie => (
           <Media key={movie.id} className="movie">
             <Media.Left>
-              <img className="photo"
-                src={movie.poster_path ? `https://image.tmdb.org/t/p/w1280${movie.poster_path}` : 'https://critics.io/img/movies/poster-placeholder.png'}
-                alt={ movie.title }
-                width={100}
-                height={150}/>
+              <Link to={`/movie/${movie.id}`}>
+                <img className="photo"
+                  src={ movie.poster_path ? `https://image.tmdb.org/t/p/w1280${movie.poster_path}` : 'https://critics.io/img/movies/poster-placeholder.png'}
+                  alt={ movie.title }
+                  width={100}
+                  height={150}/>
+              </Link>
             </Media.Left>
             <Media.Right>
               <p>Title: {movie.title}</p>
@@ -36,29 +33,9 @@ class SearchMovies extends React.Component {
     );
   }
 
-  updateQuery(e) {
-    this.setState({queryString: e.target.value});
-  }
-
-  handleKeyDown(e) {
-    if (e.key === 'Enter' && e.shiftKey === false) {
-      e.preventDefault();
-      this.props.movieSearch(this.state.queryString);
-    }
-  }
-
-  submitQuery(e) {
-    e.preventDefault();
-    this.props.movieSearch(this.state.queryString);
-  }
-
   render() {
     return (
       <div>
-        <form onKeyDown={this.handleKeyDown}>
-          <input onChange={this.updateQuery} type="text" name="search"/>
-        </form>
-        <Button onClick={this.submitQuery}>Search</Button>
         {this.renderMovies()}
       </div>
     );
