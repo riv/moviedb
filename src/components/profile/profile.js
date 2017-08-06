@@ -4,14 +4,11 @@ import { withRouter } from 'react-router-dom';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    this.props.movieSearchById(this.props.match.params.movie_id);
     this.renderProfile = this.renderProfile.bind(this);
     this.renderNotFound = this.renderNotFound.bind(this);
   }
 
-  componentDidMount () {
-    this.props.movieSearchById(this.props.match.params.movie_id);
-  }
-//
   renderProfile () {
     const { movie } = this.props;
     return (

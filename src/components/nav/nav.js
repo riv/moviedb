@@ -44,6 +44,7 @@ class Searchbar extends React.Component {
   submitQuery () {
     this.props.clearError();
     if (this.state.checked) {
+      this.props.movieSearchById(this.state.queryString);
       this.props.history.push(`/movie/${this.state.queryString}`);
     } else {
       this.props.movieSearch(this.state.queryString);

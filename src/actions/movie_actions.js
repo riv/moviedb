@@ -29,6 +29,7 @@ export const movieSearchById = id => dispatch => (
   APISearchUtil.movieSearchById(id).then(
     resp => {
       if (resp.status_code) {
+        console.log(resp);
         dispatch(receiveError(resp.status_message))
       } else{
         dispatch(receiveMovie(resp))
