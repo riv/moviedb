@@ -11,6 +11,6 @@ This is a play test project using themoviedb's api to create a movie search engi
 
 ### Features
 
--Radio button toggled off - search by name
--Radio button toggled on - search by id 
--Clicking a movie from the result given by searching by name takes you the corresponding profile page of the movie.  
+- Radio button toggled off - search by name
+- Radio button toggled on - search by id
+- Clicking a movie from the result given by searching by name takes you the corresponding profile page of the movie.  
