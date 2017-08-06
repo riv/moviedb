@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { movieSearchById } from '../../actions/movie_actions';
 
 const mapStateToProps = ({ movies }) => ({
-  movie: movies.movie
+  movie: movies.movie,
+  error: movies.error
 });
 
 const mapDispatchToProps = dispatch => ({

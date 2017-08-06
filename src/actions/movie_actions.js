@@ -15,7 +15,7 @@ export const receiveMovie = movie => ({
 });
 
 export const receiveError = error => ({
-  type: RECEIVE_MOVIES,
+  type: RECEIVE_ERROR,
   error
 });
 

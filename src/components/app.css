@@ -4,5 +4,9 @@ body {
 }
 
 .movie {
-  float: left;
+  display: inline-block;
+}
+
+.container {
+  text-align: justify;
 }

@@ -11,7 +11,7 @@ class SearchMovies extends React.Component {
   renderMovies() {
     const { movies } = this.props;
     return (
-      <div>
+      <div className="container">
         {movies.map(movie => (
           <Media key={movie.id} className="movie">
             <Media.Left>

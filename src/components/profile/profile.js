@@ -5,6 +5,7 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.renderProfile = this.renderProfile.bind(this);
+    this.renderNotFound = this.renderNotFound.bind(this);
   }
 
   componentDidMount () {
@@ -28,10 +29,16 @@ class Profile extends React.Component {
     );
   }
 
+  renderNotFound() {
+    return (
+      <p>Sorry, there is no movie matching the given id</p>
+    );
+  }
+
   render() {
     return(
       <div>
-        { this.renderProfile() }
+        { this.props.error === '' ? this.renderProfile() : this.renderNotFound()}
       </div>
     );
   }
